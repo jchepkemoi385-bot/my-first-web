@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Web Page</title>
+    <style>
+    body {
+        background-color: #f4f4f9; /* A light greyish-blue background */
+        font-family: Arial, sans-serif;
+        color: #333;
+        line-height: 1.6;
+        text-align: center; /* Centers all text and images */
+        padding: 50px;
+    }
+
+    h1 {
+        color: #2c3e50; /* A deep navy blue */
+        font-size: 3rem;
+    }
+
+    img {
+        border-radius: 15px; /* Rounds the corners of your image */
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Adds a soft shadow */
+        margin-top: 20px;
+    }
+
+    a {
+        text-decoration: none;
+        color: #e67e22; /* A nice orange color */
+        font-weight: bold;
+    }
+
+    a:hover {
+        color: #d35400; /* Darkens the link when you hover over it */
+        text-decoration: underline;
+    }
+    button {
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #34495e;
+    transform: scale(1.05); /* Makes the button slightly bigger on hover */
+}
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    text-align: left;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+/* This applies only to screens smaller than 600px (Phones) */
+@media screen and (max-width: 600px) {
+    body {
+        padding: 20px; /* Reduce padding so content doesn't feel cramped */
+    }
+
+    h1 {
+        font-size: 2rem; /* Shrink the header so it doesn't wrap awkwardly */
+    }
+
+    form {
+        width: 100%; /* Make the contact form fill the screen width */
+    }
+
+    button {
+        width: 100%; /* Make the button easier to tap with a thumb */
+        padding: 20px;
+    }
+}
+</style>
+</head>
+<body>
+
+    <h1>Hello World!</h1>
+    <p>This is my first step into web development.</p>
+<<nav>
+    <a href="index.html">Home</a> | 
+    <a href="about.html">About Me</a> | 
+    <a href="contact.html">Contact</a>
+</nav>
+<img src="https://via.placeholder.com/300" alt="A placeholder image" width="300">
+<button id="colorButton">Click to Change Color!</button>
+<script>
+    // 1. Find the button in the HTML
+    const myButton = document.getElementById('colorButton');
+
+    // 2. Define what happens when the button is clicked
+    myButton.onclick = function() {
+        // Generate a random color
+        const randomColor = Math.floor(Math.random()*16777215).toString(16);
+        
+        // Change the background color of the whole page
+        document.body.style.backgroundColor = "#" + randomColor;
+        
+        // Change the button text
+        myButton.innerText = "Color Changed!";
+    };
+    const form = document.getElementById('contactForm');
+
+form.onsubmit = function(event) {
+    event.preventDefault(); // This stops the page from refreshing
+
+    // Capture the values
+    const userName = document.getElementById('name').value;
+    const userEmail = document.getElementById('email').value;
+
+    // Show a personalized thank you
+    alert("Thank you, " + userName + "! I will email you at " + userEmail + " soon.");
+    
+    form.reset(); // Clears the form
+};
+</script>
+</body>
+</html>
