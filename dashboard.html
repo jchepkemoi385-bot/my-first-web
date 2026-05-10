@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Data Dashboard</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; margin: 0; padding: 20px; }
+        .container { max-width: 900px; margin: auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        h1 { color: #004080; }
+        nav { margin-bottom: 20px; }
+        nav a { text-decoration: none; color: #004080; font-weight: bold; margin-right: 15px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <nav>
+            <a href="index.html">Home</a> | 
+    <a href="dashboard.html">Data Dashboard</a>
+        </nav>
+
+        <h1>Econometric Analysis Dashboard</h1>
+        <p>Interactive visualization of data processed via <strong>RStudio</strong> and <strong>Ubuntu Linux</strong>.</p>
+
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar', // We'll start with a bar chart for an official look
+            data: {
+                labels: ['Agriculture', 'Tech', 'Tourism', 'Finance', 'Manufacturing'],
+                datasets: [{
+                    label: 'Sector Growth (%)',
+                    data: [12, 19, 8, 15, 10], 
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.6)',
+                        'rgba(75, 192, 192, 0.6)',
+                        'rgba(255, 206, 86, 0.6)',
+                        'rgba(153, 102, 255, 0.6)',
+                        'rgba(255, 159, 64, 0.6)'
+                    ],
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'top' }
+                },
+                animation: {
+                    duration: 2000,
+                    easing: 'easeOutBounce' // This makes the bars "bounce" into place
+                }
+            }
+        });
+    </script>
+</body>
+</html>
